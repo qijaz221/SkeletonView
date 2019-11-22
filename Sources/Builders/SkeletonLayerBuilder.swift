@@ -8,6 +8,7 @@ class SkeletonLayerBuilder {
     var skeletonType: SkeletonType?
     var colors: [UIColor] = []
     var holder: UIView?
+    var cornerRadius: Int?
 
     func setSkeletonType(_ type: SkeletonType) -> SkeletonLayerBuilder {
         self.skeletonType = type
@@ -27,14 +28,22 @@ class SkeletonLayerBuilder {
         self.holder = holder
         return self
 	}
+    
+    
+    func setCornerRadius(_ radius: Int) -> SkeletonLayerBuilder {
+        self.cornerRadius = radius
+        return self
+    }
+    
 	
 	func build() -> SkeletonLayer? {
 		guard let type = skeletonType,
 			let holder = holder
 			else { return nil }
 		
-		return SkeletonLayer(type: type,
+		let layer =  SkeletonLayer(type: type,
 							 colors: colors,
 							 skeletonHolder: holder)
+        return layer
 	}
 }

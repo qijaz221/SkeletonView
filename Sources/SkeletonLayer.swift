@@ -82,8 +82,8 @@ struct SkeletonLayer {
     /// Returns a multiLineViewHolder only if the current holder implements the `ContainsMultilineText` protocol,
     /// and actually displays multiple lines of text.
     private var multiLineViewHolder: ContainsMultilineText? {
-        guard let multiLineView = holder as? ContainsMultilineText,
-            multiLineView.numLines != 1 else { return nil }
+        guard let multiLineView = holder as? ContainsMultilineText
+            /*, multiLineView.numLines != 1 [Want to show skeleton even if there's just one line]*/ else { return nil }
         return multiLineView
     }
 

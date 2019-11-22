@@ -238,6 +238,7 @@ extension UIView {
 }
 
 extension UIView {
+    
     func addSkeletonLayer(skeletonConfig config: SkeletonConfig) {
         guard let skeletonLayer = SkeletonLayerBuilder()
             .setSkeletonType(config.type)
